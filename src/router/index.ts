@@ -14,7 +14,6 @@ import Pokemons from '../views/Pokemons.vue'
 import Pokemon from '../views/Pokemon/Index.vue'
 import PokemonAbility from '../views/Pokemon/Ability.vue'
 import PokemonForm from '../views/Pokemon/Form.vue'
-import PokemonIndice from '../views/Pokemon/Indice.vue'
 import PokemonHeld from '../views/Pokemon/Held.vue'
 import PokemonMove from '../views/Pokemon/Move.vue'
 import PokemonSpecy from '../views/Pokemon/Specy.vue'
@@ -46,12 +45,6 @@ const mainRoutes: RouteRecordRaw[] = [
     name: 'PokemonAbility',
     props: true,
     component: PokemonAbility,
-  },
-  {
-    path: '/pokemonindice-:name',
-    name: 'PokemonIndice',
-    props: true,
-    component: PokemonIndice,
   },
   {
     path: '/pokemonform-:name',

@@ -64,20 +64,13 @@
           <!-- Game Indices -->
           <td class="border border-yellow-900 align-top">
             <ul class="list-disc list-inside text-left px-3">
-              <RouterLink
+              <li
                 v-for="(PA, i) in pokemonData?.game_indices"
                 v-bind:key="i"
-                v-bind:to="{
-                  name: 'PokemonIndice',
-                  params: { name: PA.version.name },
-                }"
+                class="pb-1"
               >
-                <li class="pb-1">
-                  <span class="underline underline-offset-2 text-blue-500">
-                    {{ PA.version.name.replaceAll('-', ' ') }}
-                  </span>
-                </li>
-              </RouterLink>
+                {{ PA.version.name.replaceAll('-', ' ') }}
+              </li>
             </ul>
           </td>
           <!-- height -->
@@ -88,7 +81,7 @@
           <td class="border border-yellow-900 align-top">
             {{ pokemonData?.weight }}
           </td>
-          <!-- base experience -->
+          <!-- baseexperience -->
           <td class="border border-yellow-900 align-top">
             {{ pokemonData?.base_experience }}
           </td>
