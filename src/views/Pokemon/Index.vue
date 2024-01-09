@@ -81,7 +81,7 @@
           <td class="border border-yellow-900 align-top">
             {{ pokemonData?.weight }}
           </td>
-          <!-- baseexperience -->
+          <!-- base experience -->
           <td class="border border-yellow-900 align-top">
             {{ pokemonData?.base_experience }}
           </td>
