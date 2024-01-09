@@ -41,6 +41,8 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'off',
 
+    '@typescript-eslint/no-non-null-assertion': 'off',
+
     // Disable the following rule, because it's not relevant for the tool chain and test envoirment.
     'import/no-extraneous-dependencies': [
       'error',
