@@ -48,8 +48,7 @@
 <script setup lang="ts">
 import { ref, inject, onMounted, watch, computed } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
-import { getIdFromUrl } from '../utils'
-import type { pokemonsRes, pokemon } from '../types'
+import type { pokemonsRes, pokemon } from '../types/pokemonsRes'
 
 const axios = inject<AxiosStatic>('axios')!
 const pokemons = ref<pokemon[]>([])

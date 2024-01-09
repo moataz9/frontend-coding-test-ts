@@ -11,7 +11,16 @@ import LayoutMain from '../components/layout/LayoutMain.vue'
 import Error from '../views/Error.vue'
 import Home from '../views/Home.vue'
 import Pokemons from '../views/Pokemons.vue'
-import Pokemon from '../views/Pokemon.vue'
+import Pokemon from '../views/Pokemon/Index.vue'
+import PokemonAbility from '../views/Pokemon/Ability.vue'
+import PokemonForm from '../views/Pokemon/Form.vue'
+import PokemonIndice from '../views/Pokemon/Indice.vue'
+import PokemonHeld from '../views/Pokemon/Held.vue'
+import PokemonMove from '../views/Pokemon/Move.vue'
+import PokemonSpecy from '../views/Pokemon/Specy.vue'
+import PokemonState from '../views/Pokemon/State.vue'
+import PokemonType from '../views/Pokemon/Type.vue'
+import PokemonError from '../views/Pokemon/Error.vue'
 
 const mainRoutes: RouteRecordRaw[] = [
   {
@@ -31,6 +40,60 @@ const mainRoutes: RouteRecordRaw[] = [
     name: 'Pokemon',
     props: true,
     component: Pokemon,
+  },
+  {
+    path: '/pokemon-ability-:name',
+    name: 'PokemonAbility',
+    props: true,
+    component: PokemonAbility,
+  },
+  {
+    path: '/pokemon-indice-:name',
+    name: 'PokemonIndice',
+    props: true,
+    component: PokemonIndice,
+  },
+  {
+    path: '/pokemon-form-:name',
+    name: 'PokemonForm',
+    props: true,
+    component: PokemonForm,
+  },
+  {
+    path: '/pokemon-held-:name',
+    name: 'PokemonHeld',
+    props: true,
+    component: PokemonHeld,
+  },
+  {
+    path: '/pokemon-move-:name',
+    name: 'PokemonMove',
+    props: true,
+    component: PokemonMove,
+  },
+  {
+    path: '/pokemon-specy-:name',
+    name: 'PokemonSpecy',
+    props: true,
+    component: PokemonSpecy,
+  },
+  {
+    path: '/pokemon-state-:name',
+    name: 'PokemonState',
+    props: true,
+    component: PokemonState,
+  },
+  {
+    path: '/pokemon-type-:name',
+    name: 'PokemonType',
+    props: true,
+    component: PokemonType,
+  },
+  {
+    path: '/pokemon-error-:name',
+    name: 'PokemonError',
+    props: true,
+    component: PokemonError,
   },
 ]
 
