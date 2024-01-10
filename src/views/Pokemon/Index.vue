@@ -85,25 +85,6 @@
           <td class="border border-yellow-900 align-top">
             {{ pokemonData?.base_experience }}
           </td>
-          <!-- held Items -->
-          <td class="border border-yellow-900 align-top">
-            <ul class="list-disc list-inside text-left px-3">
-              <RouterLink
-                v-for="(PA, i) in pokemonData?.held_items"
-                v-bind:key="i"
-                v-bind:to="{
-                  name: 'PokemonHeld',
-                  params: { name: PA.item.name },
-                }"
-              >
-                <li class="pb-1">
-                  <span class="underline underline-offset-2 text-blue-500">
-                    {{ PA.item.name.replaceAll('-', ' ') }}
-                  </span>
-                </li>
-              </RouterLink>
-            </ul>
-          </td>
           <!-- moves -->
           <td class="border border-yellow-900 align-top">
             <ul class="list-disc list-inside text-left px-3">

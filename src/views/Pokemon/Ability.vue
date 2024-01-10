@@ -13,6 +13,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Effect -->
         <tr>
           <td class="border p-3 border-yellow-900 align-top font-bold">
             Effect
@@ -26,6 +27,7 @@
             }}
           </td>
         </tr>
+        <!-- Flavor -->
         <tr>
           <td class="border p-3 border-yellow-900 align-top font-bold">
             Flavor
@@ -46,6 +48,7 @@
             </ul>
           </td>
         </tr>
+        <!-- Generation -->
         <tr>
           <td class="border p-3 border-yellow-900 align-top font-bold">
             Generation
@@ -54,6 +57,7 @@
             {{ pokemonAbilityData?.generation.name.replaceAll('-', ' ') }}
           </td>
         </tr>
+        <!-- Pokemons Using It -->
         <tr>
           <td class="border p-3 border-yellow-900 align-top font-bold">
             Pokemons Using It

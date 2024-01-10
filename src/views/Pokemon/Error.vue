@@ -7,9 +7,9 @@
     </h2>
     <button
       class="p-4 m-4 bg-slate-950 text-white text-xl rounded-md hover:bg-red-400 hover:text-yellow-200 duration-150 ease-in-out"
-      v-on:click="router.push({ name: 'Home' })"
+      v-on:click="router.push({ name: 'Pokemons' })"
     >
-      go Home
+      go Pokemons
     </button>
   </div>
 </template>
