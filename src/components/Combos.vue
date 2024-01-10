@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data" class="flex flex-wrap">
+  <div v-if="data?.length" class="flex flex-wrap">
     <template v-for="(pokeNove, i) in data" v-bind:key="i">
       <router-link
         v-bind:to="{
