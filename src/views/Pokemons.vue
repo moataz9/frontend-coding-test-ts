@@ -49,6 +49,7 @@
 import { ref, inject, onMounted, watch, computed } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { pokemonsRes, pokemon } from '../types/pokemonsRes'
+import useToast from '../composables/useToast'
 
 const axios = inject<AxiosStatic>('axios')!
 const pokemons = ref<pokemon[]>([])
@@ -56,6 +57,8 @@ const limit = ref(10)
 const page = ref(0)
 const hasPerv = ref(false)
 const hasNext = ref(true)
+
+const { callToast } = useToast()
 
 const offset = computed(() => limit.value * page.value)
 
@@ -68,7 +71,9 @@ const getPokemons = async () => {
     pokemons.value = resData.results
     hasPerv.value = Boolean(resData.previous)
     hasNext.value = Boolean(resData.next)
+    callToast('Success: Pokemons data Fetched')
   } catch (err) {
+    callToast('Error: Pokemons data Failed', 'red')
     console.log(err)
   }
 }

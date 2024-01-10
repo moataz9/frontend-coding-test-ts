@@ -88,15 +88,18 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
 import { ref, inject, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { PokemonAbilityRes } from '../../types/pokemonAbilityRes'
+import useToast from '../../composables/useToast'
 
 type FlavGroups = { [key: string]: string[] }
 
 const route = useRoute()
 const router = useRouter()
+
+const { callToast } = useToast()
 
 const axios = inject<AxiosStatic>('axios')!
 
@@ -110,7 +113,9 @@ const getPokemonAbility = async () => {
     )
     const resData = res.data
     pokemonAbilityData.value = resData
+    callToast('Success: Ability data Fetched')
   } catch (err) {
+    callToast('Error: Ability data Fetched', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }

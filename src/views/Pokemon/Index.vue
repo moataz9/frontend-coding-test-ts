@@ -181,12 +181,13 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { ref, inject, onMounted } from 'vue'
-
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { PokemonRes } from '../../types/pokemonRes'
+import useToast from '../../composables/useToast'
 
 const route = useRoute()
 const router = useRouter()
+const { callToast } = useToast()
 
 const axios = inject<AxiosStatic>('axios')!
 const pokemonData = ref<PokemonRes>()
@@ -202,7 +203,9 @@ const getPokemon = async () => {
     spritiesImages.value = Object.values(resData.sprites).filter(
       (img) => typeof img === 'string' && img,
     )
+    callToast('Success: Pokemon data Fetched')
   } catch (err) {
+    callToast('Error: Pokemon data Failed', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }

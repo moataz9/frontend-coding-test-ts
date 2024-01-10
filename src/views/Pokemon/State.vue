@@ -144,11 +144,14 @@ import { useRoute, useRouter } from 'vue-router'
 import { ref, inject, onMounted } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { PokemonStatRes } from '../../types/pokemonStatRes'
+import useToast from '../../composables/useToast'
 
 const route = useRoute()
 const router = useRouter()
 
 const axios = inject<AxiosStatic>('axios')!
+
+const { callToast } = useToast()
 
 const pokemonStatData = ref<PokemonStatRes>()
 
@@ -159,7 +162,9 @@ const getPokemonStat = async () => {
     )
     const resData = res.data
     pokemonStatData.value = resData
+    callToast('Success: Pokemon Stat data Fetched')
   } catch (err) {
+    callToast('Error: Pokemon Stat data Failed', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }

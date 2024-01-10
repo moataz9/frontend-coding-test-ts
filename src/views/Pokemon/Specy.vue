@@ -210,11 +210,14 @@ import { useRoute, useRouter } from 'vue-router'
 import { ref, inject, onMounted } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { PokemonSpiciesRes } from '../../types/pokemonSpiciesRes'
+import useToast from '../../composables/useToast'
 
 type FlavGroups = { [key: string]: string[] }
 
 const route = useRoute()
 const router = useRouter()
+
+const { callToast } = useToast()
 
 const axios = inject<AxiosStatic>('axios')!
 
@@ -228,7 +231,9 @@ const getPokemonSpices = async () => {
     )
     const resData = res.data
     pokemonSpiciesData.value = resData
+    callToast('Success: Pokemon Specy data Fetched')
   } catch (err) {
+    callToast('Error: Pokemon Specy data Failed', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }

@@ -106,11 +106,14 @@ import { useRoute, useRouter } from 'vue-router'
 import { ref, inject, onMounted } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { pokemonFormRes } from '../../types/pokemonFormRes'
+import useToast from '../../composables/useToast'
 
 const route = useRoute()
 const router = useRouter()
 
 const axios = inject<AxiosStatic>('axios')!
+
+const { callToast } = useToast()
 
 const pokemonFormData = ref<pokemonFormRes>()
 const spritiesImages = ref<string[]>([])
@@ -125,7 +128,9 @@ const getPokemonForm = async () => {
     spritiesImages.value = Object.values(resData.sprites).filter(
       (img) => typeof img === 'string' && img,
     )
+    callToast('Success: Pokemon Form data Fetched')
   } catch (err) {
+    callToast('Error: Pokemon Form data Failed', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }

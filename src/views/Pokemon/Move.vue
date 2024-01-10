@@ -198,11 +198,14 @@ import { ref, inject, onMounted } from 'vue'
 import type { AxiosStatic, AxiosResponse } from 'axios'
 import type { pokemonMoveRes } from '../../types/pokemonMoveRes'
 import Combos from '../../components/Combos.vue'
+import useToast from '../../composables/useToast'
 
 type FlavGroups = { [key: string]: string[] }
 
 const route = useRoute()
 const router = useRouter()
+
+const { callToast } = useToast()
 
 const axios = inject<AxiosStatic>('axios')!
 
@@ -216,7 +219,9 @@ const getPokemonMove = async (routeToName?: string) => {
     )
     const resData = res.data
     pokemonMoveData.value = resData
+    callToast('Success: Pokemon Move data Fetched')
   } catch (err) {
+    callToast('Error: Pokemon Move data Failed', 'red')
     router.push({ name: 'PokemonError', params: { name: route.params.name } })
   }
 }
